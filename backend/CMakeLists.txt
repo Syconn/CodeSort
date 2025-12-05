@@ -15,5 +15,7 @@ add_executable(220FinalMyVersion
         src/server/WebRequests.cpp
 )
 
-# Link Winsock
-target_link_libraries(220FinalMyVersion ws2_32)
+# Link Winsock only on Windows
+if (WIN32)
+    target_link_libraries(220FinalMyVersion ws2_32)
+endif()
