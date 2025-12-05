@@ -10,7 +10,8 @@ start cmd /k "npm run dev"
 
 REM --- Go back to root folder (optional) ---
 cd ..
+cd backend\cmake-build-debug\
 
 REM --- Run your .exe file (change path accordingly) ---
 echo Launching program.exe...
-REM --- start "" "C:\path\to\your\program.exe"
+start "" "220FinalMyVersion.exe"

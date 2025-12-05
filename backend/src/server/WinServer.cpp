@@ -61,7 +61,8 @@ void WinServer::stop() const {
 }
 
 void WinServer::poll() {
-    SOCKET clientSocket = accept(serverSocket, reinterpret_cast<sockaddr*>(&clientAddr), &clientAddrSize);
+    SOCKET clientSocket =
+        accept(serverSocket, reinterpret_cast<sockaddr*>(&clientAddr), &clientAddrSize);
 
     if (clientSocket == INVALID_SOCKET)
         return;
