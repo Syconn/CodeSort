@@ -20,6 +20,8 @@ void Game::setup() {
 
 void Game::setupPlay() {
     playing = true; // Signal Playing
+    turns = 0;
+    points = 0;
 
     sortArray = new int[sortArraySize]; // Create Array
     int count = 0;
