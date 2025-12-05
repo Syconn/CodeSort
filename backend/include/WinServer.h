@@ -44,7 +44,12 @@ class WinServer {
     WebRequests* webRequests;
     SOCKET serverSocket{};
     sockaddr_in clientAddr{};
-    int clientAddrSize{};
+    #if defined(_WIN32)
+    int clientAddrSize;
+    #else
+    socklen_t clientAddrSize;
+    #endif
+
     int testCount{};
     int port;
     void start();
