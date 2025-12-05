@@ -1,0 +1,11 @@
+.gameArea {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+}
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
