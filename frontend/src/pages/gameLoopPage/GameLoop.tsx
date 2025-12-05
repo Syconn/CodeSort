@@ -6,8 +6,9 @@ import {useEffect, useRef, useState} from "react";
 import {arrayState, deckState, restart} from "../../networking/WebRequests.tsx";
 import CardElement, {type CardData} from "./Card.tsx";
 import {AnimatePresence} from "framer-motion";
+import type {PageProps} from "../../App.tsx";
 
-function GameLoop() {
+function GameLoop({ setPage }: PageProps) {
     const [array, setArray] = useState<number[]>([])
     const [cards, setCards] = useState<CardData[]>([])
     const [turns] = useState<number>(0)
@@ -36,7 +37,7 @@ function GameLoop() {
 
     return (
         <div className={gameAreaStyles.pageContainer}>
-            <HeaderElement turns={turns} points={points} reset={reset}/>
+            <HeaderElement turns={turns} points={points} reset={reset} setPage={setPage}/>
             <div className={gameAreaStyles.gameArea}>
                 <div className={arrayAreaStyles.arrayArea}>
                     <AnimatePresence>

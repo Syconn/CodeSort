@@ -30,7 +30,7 @@ function App() {
       <div className="App">
           {!serverActive && <ServerErrorPopup />}
           {page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}
-          {page == Pages.GameLoop && <GameLoop />}
+          {page == Pages.GameLoop && <GameLoop setPage={p => setPage(p)} />}
       </div>
     )
 }

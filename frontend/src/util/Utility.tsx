@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import arrayAreaStyles from "../pages/gameLoopPage/styles/arrayArea.module.css"
 import headerStyles from "../pages/gameLoopPage/styles/header.module.css";
+import {changePage} from "../networking/WebRequests.tsx";
+import {Pages} from "./Constants.ts";
+
 
 export function ArrayElement({ value, spot } : { value: number, spot: boolean }) {
     return (
@@ -16,14 +19,21 @@ export function ArrayElement({ value, spot } : { value: number, spot: boolean })
     )
 }
 
-export function HeaderElement({ turns, points, reset } : { turns: number, points: number, reset: () => void }) {
+export function HeaderElement({ turns, points, reset, setPage } : {
+    turns: number,
+    points: number,
+    reset: () => void,
+    setPage: (page: string) => void
+}) {
     return (
         <div className={headerStyles.header}>
             <button className={headerStyles.resetButton} onClick={() => reset()}> Restart </button>
-            <div className={headerStyles.title}>
+
+            <button className={headerStyles.title} onClick={() => changePage(Pages.MainMenu, setPage)}>
                 <p className={headerStyles.titleText}>CodeSort</p>
                 <img className={headerStyles.titleImage} src="/codeSort.png" alt="" />
-            </div>
+            </button>
+
             <div className= {headerStyles.rightSection}>
                 <p className = {headerStyles.turns}> Turns Passed {turns} </p>
                 <p className = {headerStyles.points}> Total Points {points} </p>

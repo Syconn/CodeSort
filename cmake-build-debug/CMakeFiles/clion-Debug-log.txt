@@ -1,1 +1,1 @@
-CMakeLists.txt not found in C:\Users\Aidan\CLionProjects\220FinalMyVersion Select CMakeLists.txt
+CMakeLists.txt not found in C:\Users\arron\CLionProjects\CodeSort Select CMakeLists.txt
