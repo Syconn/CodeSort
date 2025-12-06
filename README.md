@@ -1,1 +1,50 @@
-Rebecca is kinda short ngl
+# 🌀 CodeSort 🌀
+This project was completed as the final assignment for the Data Structures and Algorithms Honors course at the University of Delaware. The goal of this project was to create a game that is both engaging and teaches about different sorting algorithms. Our game teaches about selection, bubble, merge, quick, and insert sorts.
+
+## 👥 The Team:
+
+Aidan Haack: https://github.com/Syconn 
+
+Arron Ye: https://github.com/DaisyFlower42
+
+Gopi Melam: https://github.com/gkrismelam 
+
+Rebecca Forman: https://github.com/rebecca-17
+
+Liam Bast: https://github.com/L-Bast
+
+Adrianna Bui: https://github.com/adriannabui
+
+# Getting Started:
+
+1. Clone the repository
+2. Run the runner.path file (Functional on Windows only)
+
+
+# Current Features:
+
+- ## 🛠️ Functionalities:
+
+  - Animated Interface with interactive playing cards
+    - Sort cards include illustration and description
+  - Teaches 5 different sorts (Merge, Quick, Selection, Insertion, Bubble)
+  - Point Tracking System 
+
+- ## 📚 Libraries Used:
+
+  - WinSock 2 – Windows Network Protocol
+
+  - Framer Motion – Animations
+
+  - Lucid React – Icons and Widgets 
+
+
+
+# 🧠 What We Learned:
+- Mac and Windows Networking
+
+- Full Stack Programming
+
+- React
+  
+- Sorting Algorithms
