@@ -23,5 +23,7 @@ static constexpr int STATUS = -2;
 static constexpr int PAGE = -3;
 static constexpr int ARRAY = -4;
 static constexpr int CARDS = -5;
+static constexpr int POINTSS = -6;
+static constexpr int ROUNDS = -7;
 
 #endif //INC_220FINALMYVERSION_CONSTANTS_H

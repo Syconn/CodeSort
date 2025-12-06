@@ -4,7 +4,6 @@ import headerStyles from "../pages/gameLoopPage/styles/header.module.css";
 import {changePage} from "../networking/WebRequests.tsx";
 import {Pages} from "./Constants.ts";
 
-
 export function ArrayElement({ value, spot } : { value: number, spot: boolean }) {
     return (
         <motion.div
@@ -19,8 +18,8 @@ export function ArrayElement({ value, spot } : { value: number, spot: boolean })
     )
 }
 
-export function HeaderElement({ turns, points, reset, setPage } : {
-    turns: number,
+export function HeaderElement({ rounds, points, reset, setPage } : {
+    rounds: number,
     points: number,
     reset: () => void,
     setPage: (page: string) => void
@@ -35,7 +34,7 @@ export function HeaderElement({ turns, points, reset, setPage } : {
             </button>
 
             <div className= {headerStyles.rightSection}>
-                <p className = {headerStyles.turns}> Turns Passed {turns} </p>
+                <p className = {headerStyles.turns}> Current Round {rounds} </p>
                 <p className = {headerStyles.points}> Total Points {points} </p>
             </div>
         </div>

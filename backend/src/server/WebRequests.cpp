@@ -16,6 +16,8 @@ int WebRequests::handleRequest(const string &request) {
     if (request.find("GET /status") != string::npos) return STATUS;
     if (request.find("GET /array") != string::npos) return ARRAY;
     if (request.find("GET /deck") != string::npos) return CARDS;
+    if (request.find("GET /points") != string::npos) return POINTSS;
+    if (request.find("GET /rounds") != string::npos) return ROUNDS;
 
     // POST Requests
     if (request.find("POST /cardClicked") != string::npos) return CLICK_CARD;
@@ -35,6 +37,8 @@ string WebRequests::response(const int code) const {
     }
 
     if (code == PAGE) return sendContent(R"({"page": ")" + game->gameState + "\"}");
+    if (code == POINTSS) return sendContent(R"({"points": ")" + to_string(game->points) + "\"}");
+    if (code == ROUNDS) return sendContent(R"({"rounds": ")" + to_string(game->rounds) + "\"}");
     if (code == ARRAY) return sendContent(jsonifyArray(game->sortArray, game->sortArraySize));
     if (code == CARDS) return sendContent(game->deck->jsonify());
     if (code == STATUS) return sendResult(true);
@@ -47,7 +51,10 @@ string WebRequests::response(const int code) const {
         game->restart();
         return sendResult(true);
     }
-    if (code == CLICK_CARD) return sendResult(game->deck->sortArray(stoi(data), game->sortArray, game->sortArraySize));
+    if (code == CLICK_CARD) {
+        game->points += game->pointsPerPlay;
+        return sendResult(game->deck->sortArray(stoi(data), game->sortArray, game->sortArraySize));
+    }
 
     // Error route
     return "HTTP/1.1 404 Not Found\r\n"

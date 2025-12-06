@@ -62,6 +62,30 @@ export async function restart() {
     }
 }
 
+export async function loadPoints(){
+    try {
+        const res = await fetch("http://localhost:8080/points", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+        return (await res.json()).points
+    } catch (e) {
+        console.error("Error:", e)
+    }
+}
+
+export async function loadRounds(){
+    try {
+        const res = await fetch("http://localhost:8080/rounds", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+        return (await res.json()).rounds
+    } catch (e) {
+        console.error("Error:", e)
+    }
+}
+
 export async function sortCard(index: number, sync: () => void) {
     try {
         const res = await fetch("http://localhost:8080/cardClicked", {

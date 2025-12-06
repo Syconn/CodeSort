@@ -20,8 +20,6 @@ void Game::setup() {
 
 void Game::setupPlay() {
     playing = true; // Signal Playing
-    turns = 0;
-    points = 0;
 
     sortArray = new int[sortArraySize]; // Create Array
     int count = 0;
@@ -29,7 +27,7 @@ void Game::setupPlay() {
         if (const int num = rand() % (maxVal - minVal + 1) + minVal; !contains(sortArray, count, num)) sortArray[count++] = num;
     }
 
-    deck = new Deck(new Card[4] {cards[0], cards[1], cards[2], cards[3]}, 4);
+    deck = new Deck(new Card[5] {cards[0], cards[1], cards[2], cards[3], cards[4] }, 5);
 }
 
 void Game::restart() {
@@ -46,7 +44,7 @@ void Game::createCards() {
     cards[1] = Card("Bubble Sort", "bubble.png", "Compares each pair of adjacent elements and swaps them if they are out of order.", bubbleSort);
     cards[2] = Card("Insertion Sort", "insertion.png", "Finds the smallest element from the unsorted portion and swaps it with the first unsorted element", insertionSort);
     cards[3] = Card("Quick Sort", "quick.png", "Divides the array into two parts using a pivot, placing smaller elements before it and larger ones after, then recursively sorts each part", quickSort);
-    cards[4] = Card("Merge Sort", "", "", mergeSort);
+    cards[4] = Card("Merge Sort", "merge.png", "Splits the array into two halves, recursively sorts each half, then merges the two sorted halves back together into a single sorted array", mergeSort);
     cards[5] = Card("Bucket Sort", "", "", bucketSort);
 }
 
@@ -55,6 +53,14 @@ void Game::run() {
     while (running) {
         winServer->poll();
         if (!playing && gameState == GameLoop) setupPlay();
+        if (playing && gameState == GameLoop && isSorted(sortArray, sortArraySize)) {
+            rounds++;
+            restart();
+
+            if (rounds >= totalRounds) {
+                // End Game
+            }
+        }
     }
 }
 

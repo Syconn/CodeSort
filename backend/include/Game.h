@@ -16,7 +16,7 @@ class Game {
     WinServer* winServer;
     Deck* deck;
     int* sortArray{};
-    int sortArraySize = 10, cardSize = 6, minVal = -20, maxVal = 20, turns = 0, points = 0;
+    int sortArraySize = 10, cardSize = 6, minVal = -20, maxVal = 20, rounds = 0, points = 0, pointsPerPlay = 10, totalRounds = 5;
     bool running = true;
     bool playing = false;
     Card *cards{};
