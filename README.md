@@ -17,8 +17,15 @@ Adrianna Bui: https://github.com/adriannabui
 
 # Getting Started:
 
+Windows:
 1. Clone the repository
-2. Run the runner.path file (Functional on Windows only)
+2. Run the run.bat file (On Windows)
+3. Open the website address it provides
+
+Mac:
+1. Clone the repository
+2. Navigate to backend folder, build cmake project and run exe file
+3. Navigate to frontend folder, run "npm install", then after it finishes run "npm run dev", open the website address it provides
 
 
 # Current Features:
@@ -27,8 +34,10 @@ Adrianna Bui: https://github.com/adriannabui
 
   - Animated Interface with interactive playing cards
     - Sort cards include illustration and description
-  - Teaches 5 different sorts (Merge, Quick, Selection, Insertion, Bubble)
-  - Point Tracking System 
+  - Dynamic Array Lengths
+  - Teaches 5 different sorts (Quick, Selection, Insertion, Bubble)
+  - Point Tracking System
+  - Round Tracking System
 
 - ## 📚 Libraries Used:
 
