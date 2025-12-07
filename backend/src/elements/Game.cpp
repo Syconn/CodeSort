@@ -30,7 +30,17 @@ void Game::setupPlay() {
     deck = new Deck(new Card[4] {cards[0], cards[1], cards[2], cards[3] }, 4);
 }
 
+void Game::reset() {
+    delete[] deck;
+    delete[] sortArray;
+
+    setupPlay();
+}
+
 void Game::restart() {
+    points = 0;
+    rounds = 0;
+
     delete[] deck;
     delete[] sortArray;
 
@@ -55,10 +65,10 @@ void Game::run() {
         if (!playing && gameState == GameLoop) setupPlay();
         if (playing && gameState == GameLoop && isSorted(sortArray, sortArraySize)) {
             rounds++;
-            restart();
+            reset();
 
             if (rounds >= totalRounds) {
-                // End Game
+                reset();
             }
         }
     }

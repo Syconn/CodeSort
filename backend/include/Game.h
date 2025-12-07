@@ -25,6 +25,7 @@ class Game {
     void run();
     void createCards();
     void restart();
+    void reset();
 public:
     Game();
     ~Game();

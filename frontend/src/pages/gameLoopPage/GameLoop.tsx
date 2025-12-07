@@ -3,7 +3,7 @@ import arrayAreaStyles from "./styles/arrayArea.module.css"
 import handAreaStyles from "./styles/handArea.module.css"
 import {ArrayElement, HeaderElement} from "../../util/Utility.tsx";
 import {useEffect, useRef, useState} from "react";
-import {arrayState, deckState, loadPoints, loadRounds, restart} from "../../networking/WebRequests.tsx";
+import {arrayState, deckState, loadPoints, loadRounds, resetGame} from "../../networking/WebRequests.tsx";
 import CardElement, {type CardData} from "./Card.tsx";
 import {AnimatePresence} from "framer-motion";
 import type {PageProps} from "../../App.tsx";
@@ -48,7 +48,7 @@ function GameLoop({ setPage }: PageProps) {
     }
 
     async function reset() {
-        restart()
+        resetGame();
         setArray([]);
         setTimeout(loadData, 500);
     }

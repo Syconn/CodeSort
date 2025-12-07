@@ -62,6 +62,17 @@ export async function restart() {
     }
 }
 
+export async function resetGame() {
+    try {
+        await fetch("http://localhost:8080/reset", {
+            method: "Post",
+            headers: { "Content-Type": "application/json" },
+        })
+    } catch (e) {
+        console.error("Error:", e)
+    }
+}
+
 export async function loadPoints(){
     try {
         const res = await fetch("http://localhost:8080/points", {

@@ -31,10 +31,6 @@ function MainMenu({ setPage }: PageProps) {
                     onClick={() => changePage(Pages.Tutorial, setPage)}>
                     Tutorial
                 </button>
-                <button className={styles.playButton}
-                    onClick={() => changePage(Pages.EndScreen, setPage)}>
-                    EndScnreen
-                </button>
             </div>
         </div>
     );

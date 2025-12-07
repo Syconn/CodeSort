@@ -23,6 +23,7 @@ int WebRequests::handleRequest(const string &request) {
     if (request.find("POST /cardClicked") != string::npos) return CLICK_CARD;
     if (request.find("POST /setPage") != string::npos) return SET_PAGE;
     if (request.find("POST /restart") != string::npos) return RESTART;
+    if (request.find("POST /reset") != string::npos) return RESET;
 
     return NO_RET;
 }
@@ -48,6 +49,10 @@ string WebRequests::response(const int code) const {
         return sendResult(true);
     }
     if (code == RESTART) {
+        game->restart();
+        return sendResult(true);
+    }
+    if (code == RESET) {
         game->restart();
         return sendResult(true);
     }

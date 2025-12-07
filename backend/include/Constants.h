@@ -16,6 +16,7 @@ static const string EndScreen = "endScreen";
 static const string Tutorial  = "tutorial";
 
 // Request Codes
+static constexpr int RESET = 4;
 static constexpr int CLICK_CARD = 3;
 static constexpr int SET_PAGE = 2;
 static constexpr int RESTART = 1;
