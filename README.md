@@ -1,5 +1,5 @@
 # 🌀 CodeSort 🌀
-This project was completed as the final assignment for the Data Structures and Algorithms Honors course at the University of Delaware. The goal of this project was to create a game that is both engaging and teaches about different sorting algorithms. Our game teaches about selection, bubble, merge, quick, and insert sorts.
+This project was completed as the final assignment for the Data Structures and Algorithms Honors course at the University of Delaware. The goal of this project was to create a game that is both engaging and teaches about different sorting algorithms. Our game teaches about selection, bubble, quick, and insert sorts.
 
 ## 👥 The Team:
 
@@ -35,7 +35,7 @@ Mac/Linux:
   - Animated Interface with interactive playing cards
     - Sort cards include illustration and description
   - Dynamic Array Lengths
-  - Teaches 5 different sorts (Quick, Selection, Insertion, Bubble)
+  - Teaches 4 different sorts (Quick, Selection, Insertion, Bubble)
   - Point Tracking System
   - Round Tracking System
 
