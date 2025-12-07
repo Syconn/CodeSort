@@ -14,7 +14,9 @@ function CardElement({ card, index, sync }: { card: CardData, index: number, syn
             <div className={handAreaStyles.hoverCorner}>
                 <HelpCircle size={16} />
             </div>
-            <div className={handAreaStyles.cardDesc}>{card.description}</div>
+            <div className={handAreaStyles.cardDesc}>
+                {card.description}
+            </div>
             <p className={handAreaStyles.cardText}>{card.name}</p>
             <img className={handAreaStyles.photo}  alt={""} src={card.image} />
         </div>

@@ -1,0 +1,56 @@
+.endPopup {
+    height: 450px;
+    width: 450px;
+    background-color: #2e2edc;
+    border-radius: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 25px double black;
+}
+.wrapper {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    align-items: center;      /* center vertically */
+    background-image: linear-gradient(to bottom, #2274ab 50%, darkblue);
+}
+
+.buttonGeneral {
+    height: 80px;
+    width: 150px;
+    background-color: rgb(0, 123, 255);
+    margin-left: 10px;
+    color: white;
+    color: white;
+    border: 5px solid black;
+    border-radius: 15px;
+    padding: 10px 15px 9px;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6);
+}
+
+.buttonGeneral:hover {
+    background-color: rgb(40, 131, 227);
+    transform: scale(1.1);
+}
+
+.buttonWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.GameoverText {
+    margin-top: 180px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-family: Roboto, Arial, Serif, serif;
+    color: white;
+    font-weight: bold;
+    font-size: 65px;
+    text-shadow: 8px 8px 10px black;
+}

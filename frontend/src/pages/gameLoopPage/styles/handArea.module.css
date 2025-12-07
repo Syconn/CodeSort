@@ -1,13 +1,15 @@
 .handArea {
     display: flex;
-    background-color: #2274ab;
+    background-color: darkblue;
     flex: 2;
     justify-content: center;
     align-items: flex-end;
     gap: 10px;
+    padding: 5px;
 }
 
 .card {
+    margin-top: 5px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -24,6 +26,8 @@
     margin-right: 10px;
     border: 4px solid midnightblue;
     box-shadow: 1px 1px 20px rgba(25, 25, 112, 0.7);
+    transition:
+        transform 0.05s;
 }
 
 .cardText {
@@ -43,11 +47,19 @@
 
 .card:hover {
     transform: scale(1.1);
+    background-color: rgb(35, 140, 253);
+    outline: 8px solid #101049;
+    border-color: #101049;
+}
+
+.card:active {
+    transform: scale(1.02);
 }
 
 .card:hover .cardText {
     display: block;
 }
+
 
 .photo {
     padding-top: 10px;
@@ -77,6 +89,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+    font-family: Roboto, arial, serif;
 }
 
 .hoverCorner {

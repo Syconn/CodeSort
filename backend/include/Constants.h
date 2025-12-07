@@ -12,6 +12,8 @@ using namespace std;
 // GameStates
 static const string MainMenu = "menu";
 static const string GameLoop = "gameLoop";
+static const string EndScreen = "endScreen";
+static const string Tutorial  = "tutorial";
 
 // Request Codes
 static constexpr int CLICK_CARD = 3;

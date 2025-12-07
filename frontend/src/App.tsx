@@ -5,6 +5,8 @@ import GameLoop from "./pages/gameLoopPage/GameLoop.tsx";
 import {useEffect, useState} from "react";
 import {requestPage, serverStatus} from "./networking/WebRequests.tsx";
 import {ErrorPopup} from "./pages/errorPopup/Popups.tsx";
+import EndScreen from "./pages/finalPage/finalPage.tsx";
+import Tutorial from  "./pages/tutorial/Tutorial.tsx";
 
 export type PageProps = {
     setPage: (page: string) => void;
@@ -31,7 +33,10 @@ function App() {
           {!serverActive && <ErrorPopup />}
           {page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}
           {page == Pages.GameLoop && <GameLoop setPage={p => setPage(p)} />}
+          {page == Pages.Tutorial && <Tutorial setPage={p => setPage(p)} />}
+          {page == Pages.EndScreen && <EndScreen setPage={p => setPage(p)} />}
       </div>
+
     )
 }
 
