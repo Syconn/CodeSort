@@ -27,7 +27,7 @@ void Game::setupPlay() {
         if (const int num = rand() % (maxVal - minVal + 1) + minVal; !contains(sortArray, count, num)) sortArray[count++] = num;
     }
 
-    deck = new Deck(new Card[5] {cards[0], cards[1], cards[2], cards[3], cards[4] }, 5);
+    deck = new Deck(new Card[4] {cards[0], cards[1], cards[2], cards[3] }, 4);
 }
 
 void Game::restart() {

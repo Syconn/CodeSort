@@ -8,7 +8,7 @@ export type CardData = {
     description: string,
 }
 
-function CardElement({ card, index, sync }: { card: CardData, index: number, sync: () => void }) {
+function CardElement({ card, index, sync }: { card: CardData, index: number, sync: (sorted: boolean) => void }) {
     return (
         <div className={handAreaStyles.card} onClick={() => sortCard(index, sync)}>
             <div className={handAreaStyles.hoverCorner}>

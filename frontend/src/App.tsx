@@ -4,7 +4,7 @@ import "./App.css"
 import GameLoop from "./pages/gameLoopPage/GameLoop.tsx";
 import {useEffect, useState} from "react";
 import {requestPage, serverStatus} from "./networking/WebRequests.tsx";
-import ServerErrorPopup from "./pages/errorPopup/ErrorPopup.tsx";
+import {ErrorPopup} from "./pages/errorPopup/Popups.tsx";
 
 export type PageProps = {
     setPage: (page: string) => void;
@@ -28,7 +28,7 @@ function App() {
 
     return (
       <div className="App">
-          {!serverActive && <ServerErrorPopup />}
+          {!serverActive && <ErrorPopup />}
           {page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}
           {page == Pages.GameLoop && <GameLoop setPage={p => setPage(p)} />}
       </div>

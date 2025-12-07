@@ -53,7 +53,8 @@ string WebRequests::response(const int code) const {
     }
     if (code == CLICK_CARD) {
         game->points += game->pointsPerPlay;
-        return sendResult(game->deck->sortArray(stoi(data), game->sortArray, game->sortArraySize));
+        const bool success = game->deck->sortArray(stoi(data), game->sortArray, game->sortArraySize);
+        return sendContent("{\"success\":" + to_string(success) + ", \"sorted\":" + to_string(isSorted(game->sortArray, game->sortArraySize)) + "}");
     }
 
     // Error route

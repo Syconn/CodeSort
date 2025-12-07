@@ -86,14 +86,15 @@ export async function loadRounds(){
     }
 }
 
-export async function sortCard(index: number, sync: () => void) {
+export async function sortCard(index: number, sync: (sorted: boolean) => void) {
     try {
         const res = await fetch("http://localhost:8080/cardClicked", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({"body": index}),
         })
-        if ((await res.json()).success) sync()
+        const data = await res.json()
+        if (data.success) sync(data.sorted)
     } catch (e) {
         console.error("Error:", e)
     }

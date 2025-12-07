@@ -24,25 +24,52 @@
     animation: fadeIn 0.3s ease-in-out;
 }
 
+.success {
+    background-color: #2b2b2b; /* dark gray box */
+    border: 3px solid #11a601; /* red border */
+    border-radius: 1rem;
+    color: white;
+    padding: 2rem 3rem;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(17, 166, 1, 0.6); /* outer red glow */
+    max-width: 420px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
 .icon {
     color: #ff4d4d;
     margin-bottom: 1rem;
     filter: drop-shadow(0 0 6px rgba(255, 77, 77, 0.8)); /* glowing icon shadow */
 }
 
-h2 {
+.rh2 {
     margin: 0.5rem 0;
     text-shadow:
             0 0 6px rgba(255, 77, 77, 0.8),
             0 0 12px rgba(255, 77, 77, 0.5); /* red glow around title */
 }
 
-p {
+.rp {
     margin: 0;
     opacity: 0.9;
     text-shadow:
             0 0 4px rgba(255, 77, 77, 0.6),
             0 0 10px rgba(255, 77, 77, 0.4); /* softer text glow */
+}
+
+.gh2 {
+    margin: 0.5rem 0;
+    text-shadow:
+            0 0 6px rgba(17, 166, 1, 0.8),
+            0 0 12px rgba(17, 166, 1, 0.5); /* red glow around title */
+}
+
+.gp {
+    margin: 0;
+    opacity: 0.9;
+    text-shadow:
+            0 0 4px rgba(17, 166, 1, 0.6),
+            0 0 10px rgba(17, 166, 1, 0.4); /* softer text glow */
 }
 
 @keyframes fadeIn {
