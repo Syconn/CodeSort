@@ -22,7 +22,7 @@ Windows:
 2. Run the run.bat file (On Windows)
 3. Open the website address it provides
 
-Mac:
+Mac/Linux:
 1. Clone the repository
 2. Navigate to backend folder, build cmake project and run exe file
 3. Navigate to frontend folder, run "npm install", then after it finishes run "npm run dev", open the website address it provides
