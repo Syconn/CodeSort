@@ -97,6 +97,18 @@
     width: 20px;
 }
 
-.arrayDesc {
-    opacity: 0%;
+.helpSymbol:hover + .arrayDesc{
+    opacity: 1;
+}
+
+.arrayDesc,.topRightDesc, .mainDesc, .restart, .cardDesc {
+    opacity: 0;
+    position: absolute;
+    background-color: rgba(0,0,0,0.3);
+    font-family: Roboto, arial, serif;
+    width: 180px;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 10px;
+    transition: opacity 0.06s;
 }

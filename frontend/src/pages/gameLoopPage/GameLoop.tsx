@@ -83,9 +83,13 @@ function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:numb
                         <AnimatePresence>
                             {array.map((val, ind) => (<ArrayElement value={val} key={val} spot={sortedArray.current[ind] !== val}/>))}
                         </AnimatePresence>
-                        <div><img src={question} alt="question" className={gameLoopStyles.helpSymbol} /></div>
-                        <div className={ gameLoopStyles.arrayDesc}>
+                        <div>
+                            <img src={question} alt="question" className={gameLoopStyles.helpSymbol} />
+                            <div className={ gameLoopStyles.arrayDesc}>
+                                This is the array you are trying to sort, sorting is done from least to greatest, when a square is highlighted in green it is in the correct position
+                            </div>
                         </div>
+
                     </div>
 
                 )}
