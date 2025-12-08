@@ -5,7 +5,7 @@ import {ArrayElement, HeaderElement} from "../../util/Utility.tsx";
 import {useEffect, useRef, useState} from "react";
 import {arrayState, deckState, loadPoints, loadRounds, resetGame} from "../../networking/WebRequests.tsx";
 import CardElement, {type CardData} from "./Card.tsx";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence, number} from "framer-motion";
 import type {PageProps} from "../../App.tsx";
 import {AlertPopup} from "../errorPopup/Popups.tsx";
 import {Pages} from "../../util/Constants.ts";
@@ -17,32 +17,38 @@ function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:numb
     const [points, setPoints] = useState<number>(0)
     const [showPopup, setShowPopup] = useState(false)
     const [sorted, setSorted] = useState(false)
+    const [lastRound, setLastRound] = useState(0)
 
     const prevArray = useRef<number[]>(array);
     const sortedArray = useRef<number[]>([]);
 
     useEffect(() => {
-        if (sorted) {
-            setShowPopup(true);
-
+        if (sorted && lastRound < 4) {
             const timer = setTimeout(() => {
-                setShowPopup(false);
-            }, 3000); // hide after 3 seconds
+                setShowPopup(true);
 
+                const timer = setTimeout(() => {
+                    setShowPopup(false);
+                }, 2000);
+
+                return () => clearTimeout(timer);
+            }, 250);
             return () => clearTimeout(timer);
         }
     }, [sorted]);
 
     async function loadData(sorted : boolean) {
         setOldPoints(points)
+        setLastRound(rounds)
 
-        loadRounds().then(v => {
-            setRounds(v);
-            if (v >= 5) setPage(Pages.EndScreen)
-        });
+        if (lastRound >= 4) setPage(Pages.GameLoop)
+
+        loadRounds().then(v => setRounds(v));
         loadPoints().then(v => setPoints(v));
 
         setSorted(sorted);
+
+        if (sorted) setArray(sortedArray.current)
 
         const arr = await arrayState();
         prevArray.current = arr;

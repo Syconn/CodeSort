@@ -27,10 +27,6 @@ function MainMenu({ setPage }: PageProps) {
                     onClick={() => changePage(Pages.GameLoop, setPage)}>
                     Play Game
                 </button>
-                <button className={styles.playButton}
-                    onClick={() => changePage(Pages.Tutorial, setPage)}>
-                    Tutorial
-                </button>
             </div>
         </div>
     );
