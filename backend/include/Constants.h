@@ -13,7 +13,6 @@ using namespace std;
 static const string MainMenu = "menu";
 static const string GameLoop = "gameLoop";
 static const string EndScreen = "endScreen";
-static const string Tutorial  = "tutorial";
 
 // Request Codes
 static constexpr int RESET = 4;

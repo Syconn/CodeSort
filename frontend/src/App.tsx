@@ -6,7 +6,6 @@ import {useEffect, useState} from "react";
 import {requestPage, serverStatus} from "./networking/WebRequests.tsx";
 import {ErrorPopup} from "./pages/errorPopup/Popups.tsx";
 import EndScreen from "./pages/finalPage/finalPage.tsx";
-import Tutorial from  "./pages/tutorial/Tutorial.tsx";
 
 export type PageProps = {
     setPage: (page: string) => void;
@@ -14,6 +13,7 @@ export type PageProps = {
 
 function App() {
     const [page, setPage] = useState<string>(Pages.MainMenu);
+    const [oldPoints, setOldPoints] = useState<number>(0);
     const [serverActive, setServerActive] = useState<boolean>(true)
 
     useEffect(() => {
@@ -32,9 +32,8 @@ function App() {
       <div className="App">
           {!serverActive && <ErrorPopup />}
           {page == Pages.MainMenu && <MainMenu setPage={p => setPage(p)} />}
-          {page == Pages.GameLoop && <GameLoop setPage={p => setPage(p)} />}
-          {page == Pages.Tutorial && <Tutorial setPage={p => setPage(p)} />}
-          {page == Pages.EndScreen && <EndScreen setPage={p => setPage(p)} />}
+          {page == Pages.GameLoop && <GameLoop setPage={p => setPage(p)} setOldPoints={setOldPoints} />}
+          {page == Pages.EndScreen && <EndScreen setPage={p => setPage(p)} points={oldPoints} />}
       </div>
 
     )

@@ -8,8 +8,9 @@ import CardElement, {type CardData} from "./Card.tsx";
 import {AnimatePresence} from "framer-motion";
 import type {PageProps} from "../../App.tsx";
 import {AlertPopup} from "../errorPopup/Popups.tsx";
+import {Pages} from "../../util/Constants.ts";
 
-function GameLoop({ setPage }: PageProps) {
+function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:number) => void }) {
     const [array, setArray] = useState<number[]>([])
     const [cards, setCards] = useState<CardData[]>([])
     const [rounds, setRounds] = useState<number>(0)
@@ -33,6 +34,14 @@ function GameLoop({ setPage }: PageProps) {
     }, [sorted]);
 
     async function loadData(sorted : boolean) {
+        setOldPoints(points)
+
+        loadRounds().then(v => {
+            setRounds(v);
+            if (v >= 5) setPage(Pages.EndScreen)
+        });
+        loadPoints().then(v => setPoints(v));
+
         setSorted(sorted);
 
         const arr = await arrayState();
@@ -42,9 +51,6 @@ function GameLoop({ setPage }: PageProps) {
 
         const cardData = await deckState();
         setCards(cardData);
-
-        loadRounds().then(v => setRounds(v));
-        loadPoints().then(v => setPoints(v));
     }
 
     async function reset() {
@@ -68,7 +74,7 @@ function GameLoop({ setPage }: PageProps) {
                     </div>
                 )}
                 <div className={handAreaStyles.handArea}>
-                    {cards.map(((card, index) => (<CardElement card={card} index={index} sync={loadData} />)))}
+                    {cards.map(((card, index) => (<CardElement key={index} card={card} index={index} sync={loadData} />)))}
                 </div>
             </div>
         </div>

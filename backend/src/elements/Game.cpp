@@ -47,6 +47,10 @@ void Game::restart() {
     setupPlay();
 }
 
+void Game::endGame() {
+    restart();
+    gameState = EndScreen;
+}
 
 void Game::createCards() {
     cards = new Card[cardSize];
@@ -67,9 +71,7 @@ void Game::run() {
             rounds++;
             reset();
 
-            if (rounds >= totalRounds) {
-                reset();
-            }
+            if (rounds >= totalRounds) endGame();
         }
     }
 }

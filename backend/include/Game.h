@@ -23,6 +23,7 @@ class Game {
     void setup();
     void setupPlay();
     void run();
+    void endGame();
     void createCards();
     void restart();
     void reset();
