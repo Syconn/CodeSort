@@ -5,7 +5,7 @@ import {ArrayElement, HeaderElement} from "../../util/Utility.tsx";
 import {useEffect, useRef, useState} from "react";
 import {arrayState, deckState, loadPoints, loadRounds, resetGame} from "../../networking/WebRequests.tsx";
 import CardElement, {type CardData} from "./Card.tsx";
-import {AnimatePresence, number} from "framer-motion";
+import {AnimatePresence} from "framer-motion";
 import type {PageProps} from "../../App.tsx";
 import {AlertPopup} from "../errorPopup/Popups.tsx";
 import {Pages} from "../../util/Constants.ts";
@@ -43,22 +43,26 @@ function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:numb
         setOldPoints(points)
         setLastRound(rounds)
 
-        if (lastRound >= 4) setPage(Pages.GameLoop)
+        if (lastRound >= 4 && sorted) {
+            setArray(sortedArray.current)
+            setPage(Pages.GameLoop)
+        }
+        else {
+            loadRounds().then(v => setRounds(v));
+            loadPoints().then(v => setPoints(v));
 
-        loadRounds().then(v => setRounds(v));
-        loadPoints().then(v => setPoints(v));
+            setSorted(sorted);
 
-        setSorted(sorted);
+            if (sorted) setArray(sortedArray.current)
 
-        if (sorted) setArray(sortedArray.current)
+            const arr = await arrayState();
+            prevArray.current = arr;
+            sortedArray.current = [...arr].sort((a, b) => a - b);
+            setArray(arr);
 
-        const arr = await arrayState();
-        prevArray.current = arr;
-        sortedArray.current = [...arr].sort((a, b) => a - b);
-        setArray(arr);
-
-        const cardData = await deckState();
-        setCards(cardData);
+            const cardData = await deckState();
+            setCards(cardData);
+        }
     }
 
     async function reset() {
@@ -72,7 +76,7 @@ function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:numb
     return (
         <div className={gameAreaStyles.pageContainer}>
             {showPopup && (<AlertPopup rounds={rounds} points={points} />)}
-            <HeaderElement rounds={rounds} points={points} reset={reset} setPage={setPage}/>
+            <HeaderElement rounds={Number(rounds) + 1} points={points} reset={reset} setPage={setPage}/>
             <div className={gameAreaStyles.gameArea}>
                 {!showPopup && (
                     <div className={arrayAreaStyles.arrayArea}>
