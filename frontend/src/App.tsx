@@ -11,6 +11,7 @@ export type PageProps = {
     setPage: (page: string) => void;
 }
 
+
 function App() {
     const [page, setPage] = useState<string>(Pages.MainMenu);
     const [oldPoints, setOldPoints] = useState<number>(0);

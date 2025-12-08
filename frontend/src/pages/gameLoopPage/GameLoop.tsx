@@ -9,6 +9,8 @@ import {AnimatePresence} from "framer-motion";
 import type {PageProps} from "../../App.tsx";
 import {AlertPopup} from "../errorPopup/Popups.tsx";
 import {Pages} from "../../util/Constants.ts";
+import question from "../../../public/question.png";
+import gameLoopStyles from "./styles/GameLoop.module.css";
 
 function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:number) => void }) {
     const [array, setArray] = useState<number[]>([])
@@ -71,12 +73,23 @@ function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:numb
                         <AnimatePresence>
                             {array.map((val, ind) => (<ArrayElement value={val} key={val} spot={sortedArray.current[ind] !== val}/>))}
                         </AnimatePresence>
+                        <div><img src={question} alt="question" className={gameLoopStyles.helpSymbol} /></div>
+                        <div className={ gameLoopStyles.arrayDesc}>
+                        </div>
                     </div>
+
                 )}
                 <div className={handAreaStyles.handArea}>
                     {cards.map(((card, index) => (<CardElement key={index} card={card} index={index} sync={loadData} />)))}
                 </div>
             </div>
+
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     )
 }

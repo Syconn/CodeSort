@@ -37,6 +37,11 @@
     transform: scale(1.1);
 }
 
+
+.buttonGeneral:active {
+    background-color: rgb(63, 147, 232);
+    transform: scale(1.05);
+}
 .buttonWrapper {
     width: 100%;
     display: flex;
@@ -44,13 +49,23 @@
 }
 
 .GameoverText {
-    margin-top: 180px;
     display: flex;
     width: 100%;
-    justify-content: center;
     font-family: Roboto, Arial, Serif, serif;
     color: white;
     font-weight: bold;
     font-size: 65px;
     text-shadow: 8px 8px 10px black;
+    flex-direction: column;
+    margin-top: 150px;
+}
+
+.poinDisplay {
+    font-size: 45px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.gameOver {
+    align-self: center;
 }

@@ -91,3 +91,12 @@
     font-weight: bold;
     margin-top: 15px;
 }
+
+.helpSymbol {
+    height: 20px;
+    width: 20px;
+}
+
+.arrayDesc {
+    opacity: 0%;
+}

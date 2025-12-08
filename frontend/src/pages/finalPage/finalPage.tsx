@@ -8,9 +8,10 @@ function EndScreen({ setPage, points }: PageProps & { points:number }) {
         <div className = {styles.wrapper}>
             <div className={styles.endPopup}>
                 <div className = {styles.GameoverText}>
-                    Game Over
-                    <br />
-                    Finished with {points} points!
+                    <p className= {styles.gameOver}>Game Over</p>
+                    <p className = {styles.poinDisplay}>
+                    {points} Points
+                    </p>
                 </div>
             <div>
 
