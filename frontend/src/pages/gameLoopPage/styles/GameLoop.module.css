@@ -92,16 +92,33 @@
     margin-top: 15px;
 }
 
-.helpSymbol {
+.helpSymbolArray, .helpSymbolCard, .helpSymbolRestart {
     height: 20px;
     width: 20px;
+    filter: invert(1);
+
 }
 
-.helpSymbol:hover + .arrayDesc{
+.helpSymbolRestart {
+    margin-left: 5px;
+}
+
+.helpSymbolRestart:hover + .restartDesc{
     opacity: 1;
 }
 
-.arrayDesc,.topRightDesc, .mainDesc, .restart, .cardDesc {
+
+
+.helpSymbolArray:hover + .arrayDesc{
+    opacity: 1;
+}
+
+.helpSymbolCard:hover + .cardDesc{
+    opacity: 1;
+}
+
+
+.arrayDesc,.topRightDesc, .mainDesc, .restartDesc, .cardDesc {
     opacity: 0;
     position: absolute;
     background-color: rgba(0,0,0,0.3);
@@ -111,4 +128,9 @@
     padding: 10px 10px;
     border-radius: 10px;
     transition: opacity 0.06s;
+}
+
+.cardDesc {
+    top:530px;
+    width: 250px;
 }

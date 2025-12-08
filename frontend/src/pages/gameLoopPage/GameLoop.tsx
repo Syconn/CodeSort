@@ -80,7 +80,7 @@ function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:numb
                             {array.map((val, ind) => (<ArrayElement value={val} key={val} spot={sortedArray.current[ind] !== val}/>))}
                         </AnimatePresence>
                         <div>
-                            <img src={question} alt="question" className={gameLoopStyles.helpSymbol} />
+                            <img src={question} alt="question" className={gameLoopStyles.helpSymbolArray} />
                             <div className={ gameLoopStyles.arrayDesc}>
                                 This is the array you are trying to sort, sorting is done from least to greatest, when a square is highlighted in green it is in the correct position
                             </div>
@@ -91,6 +91,14 @@ function GameLoop({ setPage, setOldPoints }: PageProps & { setOldPoints: (v:numb
                 )}
                 <div className={handAreaStyles.handArea}>
                     {cards.map(((card, index) => (<CardElement key={index} card={card} index={index} sync={loadData} />)))}
+                    <div>
+                        <img src={question} alt="question" className={gameLoopStyles.helpSymbolCard} />
+                        <div className={ gameLoopStyles.cardDesc}>
+                            These are your cards each represents only a single iteration of each sort :&gt;
+                            <br></br> Try and use as few cards as possible
+                            as each card usage add 10 points lower the score the better, like golf!
+                        </div>
+                    </div>
                 </div>
             </div>
 

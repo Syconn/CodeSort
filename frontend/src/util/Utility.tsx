@@ -3,6 +3,8 @@ import arrayAreaStyles from "../pages/gameLoopPage/styles/arrayArea.module.css"
 import headerStyles from "../pages/gameLoopPage/styles/header.module.css";
 import {changePage} from "../networking/WebRequests.tsx";
 import {Pages} from "./Constants.ts";
+import question from "../../public/question.png";
+import gameLoopStyles from "../pages/gameLoopPage/styles/GameLoop.module.css";
 
 export function ArrayElement({ value, spot } : { value: number, spot: boolean }) {
     return (
@@ -26,8 +28,9 @@ export function HeaderElement({ rounds, points, reset, setPage } : {
 }) {
     return (
         <div className={headerStyles.header}>
+            <div>
             <button className={headerStyles.resetButton} onClick={() => reset()}> Restart </button>
-
+            </div>
             <button className={headerStyles.title} onClick={() => changePage(Pages.MainMenu, setPage)}>
                 <p className={headerStyles.titleText}>CodeSort</p>
                 <img className={headerStyles.titleImage} src="/codeSort.png" alt="" />
